@@ -216,7 +216,7 @@ ul { padding: 0; list-style: none; }
   padding: clamp(40px, 7vw, 88px) var(--gutter) 0;
 }
 .hero__inner {
-  max-width: 920px;
+  max-width: 1000px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -665,7 +665,7 @@ ul { padding: 0; list-style: none; }
   width: auto;
   height: auto;
   object-fit: contain;
-  border-radius: 12px;
+  border-radius: 0;
   box-shadow: 0 30px 80px rgb(0 0 0 / 0.5);
 }
 .lightbox__caption {
