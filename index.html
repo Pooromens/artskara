@@ -46,13 +46,12 @@
 <main id="top">
 
   <section class="hero">
-    <div class="hero__text reveal">
-      <span class="badge">
-        <img class="badge__avatar" src="images/artist-avatar.jpg" alt="">
-        <span data-i18n="hero.eyebrow">Painter, based in Chișinău</span>
-      </span>
-      <div class="hero__head">
+    <div class="hero__inner reveal">
+      <img class="hero__avatar" src="images/artist-avatar.jpg" alt="Irina Kara">
+      <div class="hero__text">
+        <span class="eyebrow" data-i18n="hero.eyebrow">Painter, based in Chișinău</span>
         <h1 class="hero__title">Irina Kara</h1>
+        <p class="hero__sub" data-i18n="hero.sub">Paintings built on the expressive power of color, light, and texture.</p>
         <ul class="hero__contacts">
           <li>
             <a href="https://www.instagram.com/artskara/" target="_blank" rel="noopener noreferrer">
@@ -73,11 +72,10 @@
             </a>
           </li>
         </ul>
-      </div>
-      <p class="hero__sub" data-i18n="hero.sub">Paintings built on the expressive power of color, light, and texture.</p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="#work"><span data-i18n="hero.cta">View the work</span><span aria-hidden="true">↓</span></a>
-        <a class="btn btn--outline" href="#contact" data-i18n="nav.contact">Contact</a>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#work"><span data-i18n="hero.cta">View the work</span><span aria-hidden="true">↓</span></a>
+          <a class="btn btn--outline" href="#contact" data-i18n="nav.contact">Contact</a>
+        </div>
       </div>
     </div>
   </section>
@@ -88,33 +86,54 @@
       <p class="section-hint" data-i18n="work.hint">Drag, swipe or use the arrow keys</p>
     </div>
 
-    <div class="cf reveal" data-coverflow role="region" aria-roledescription="carousel" aria-label="Selected work">
+    <div class="cf reveal" data-coverflow data-autoplay="0"role="region" aria-roledescription="carousel" aria-label="Selected work">
       <div class="cf__stage">
         <div class="cf__frame" tabindex="0">
           <div class="cf__track">
-            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="1 of 8">
-              <img class="zoomable" src="images/grandmas-pear.jpg" alt="Grandma's Pear, painting by Irina Kara" draggable="false" loading="eager" role="button" tabindex="-1" aria-label="View full size: Grandma's Pear">
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="1 of 15">
+              <img class="zoomable" src="images/before-christmas.jpg" alt="Before Christmas, acrylic on canvas, 85 × 110 cm" draggable="false" loading="eager" role="button" tabindex="-1" aria-label="View full size: Before Christmas">
             </div>
-            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="2 of 8">
-              <img class="zoomable" src="images/letter-thoughts-before-sunrise.jpg" alt="Letter – Thoughts Before Sunrise, acrylic on canvas, 85 × 110 cm" draggable="false" loading="eager" role="button" tabindex="-1" aria-label="View full size: Letter – Thoughts Before Sunrise">
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="2 of 15">
+              <img class="zoomable" src="images/grandmas-pear.jpg" alt="Grandma's Pear, oil on canvas, 85 × 85 cm" draggable="false" loading="eager" role="button" tabindex="-1" aria-label="View full size: Grandma's Pear">
             </div>
-            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="3 of 8">
-              <img class="zoomable" src="images/wild-bloom.jpg" alt="Wild Bloom, oil on canvas, 60 × 80 cm" draggable="false" loading="eager" role="button" tabindex="-1" aria-label="View full size: Wild Bloom">
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="3 of 15">
+              <img class="zoomable" src="images/hero-after-the-touch.jpg" alt="After the Touch, acrylic on canvas, 60 × 85 cm" draggable="false" loading="eager" role="button" tabindex="-1" aria-label="View full size: After the Touch">
             </div>
-            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="4 of 8">
-              <img class="zoomable" src="images/horizon-in-motion.jpg" alt="Horizon in Motion, oil on canvas, diptych, 60 × 80 cm" draggable="false" role="button" tabindex="-1" aria-label="View full size: Horizon in Motion">
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="4 of 15">
+              <img class="zoomable" src="images/letter-thoughts-before-sunrise.jpg" alt="Letter – Thoughts Before Sunrise, acrylic on canvas, 85 × 110 cm" draggable="false" loading="lazy" role="button" tabindex="-1" aria-label="View full size: Letter – Thoughts Before Sunrise">
             </div>
-            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="5 of 8">
-              <img class="zoomable" src="images/roses.jpg" alt="Roses, oil on canvas, 60 × 60 cm" draggable="false" role="button" tabindex="-1" aria-label="View full size: Roses">
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="5 of 15">
+              <img class="zoomable" src="images/wild-bloom.jpg" alt="Wild Bloom, oil on canvas, 60 × 80 cm" draggable="false" loading="lazy" role="button" tabindex="-1" aria-label="View full size: Wild Bloom">
             </div>
-            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="6 of 8">
-              <img class="zoomable" src="images/between-silence-and-depth.jpg" alt="Between Silence and Depth, oil on canvas, 30 × 40 cm" draggable="false" role="button" tabindex="-1" aria-label="View full size: Between Silence and Depth">
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="6 of 15">
+              <img class="zoomable" src="images/the-little-white-lamb.jpg" alt="The Little White Lamb, oil on canvas, 85 × 110 cm" draggable="false" loading="lazy" role="button" tabindex="-1" aria-label="View full size: The Little White Lamb">
             </div>
-            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="7 of 8">
-              <img class="zoomable" src="images/the-little-white-lamb.jpg" alt="The Little White Lamb, oil on canvas, 85 × 110 cm" draggable="false" role="button" tabindex="-1" aria-label="View full size: The Little White Lamb">
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="7 of 15">
+              <img class="zoomable" src="images/apples-and-pears.jpg" alt="The Apples and Pears, oil on canvas, 85 × 30 cm" draggable="false" loading="lazy" role="button" tabindex="-1" aria-label="View full size: The Apples and Pears">
             </div>
-            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="8 of 8">
-              <img class="zoomable" src="images/crimson-pulse.jpg" alt="Crimson Pulse, oil on canvas, 60 × 110 cm" draggable="false" role="button" tabindex="-1" aria-label="View full size: Crimson Pulse">
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="8 of 15">
+              <img class="zoomable" src="images/roses.jpg" alt="Roses, oil on canvas, 60 × 60 cm" draggable="false" loading="lazy" role="button" tabindex="-1" aria-label="View full size: Roses">
+            </div>
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="9 of 15">
+              <img class="zoomable" src="images/road-at-home-old-orhey.jpg" alt="The Road at Home, Old Orhey, oil on canvas, 85 × 85 cm" draggable="false" loading="lazy" role="button" tabindex="-1" aria-label="View full size: The Road at Home, Old Orhey">
+            </div>
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="10 of 15">
+              <img class="zoomable" src="images/crimson-pulse.jpg" alt="Crimson Pulse, oil on canvas, 60 × 110 cm" draggable="false" loading="lazy" role="button" tabindex="-1" aria-label="View full size: Crimson Pulse">
+            </div>
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="11 of 15">
+              <img class="zoomable" src="images/horizon-in-motion.jpg" alt="Horizon in Motion, oil on canvas, diptych, 60 × 80 cm" draggable="false" loading="lazy" role="button" tabindex="-1" aria-label="View full size: Horizon in Motion">
+            </div>
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="12 of 15">
+              <img class="zoomable" src="images/pink-roses-and-tea.jpg" alt="Pink Roses and Tea, oil on canvas, 40 × 70 cm" draggable="false" loading="lazy" role="button" tabindex="-1" aria-label="View full size: Pink Roses and Tea">
+            </div>
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="13 of 15">
+              <img class="zoomable" src="images/pomegranate-and-orange.jpg" alt="Still Life with Pomegranate and Orange, oil on canvas, 50 × 30 cm" draggable="false" loading="lazy" role="button" tabindex="-1" aria-label="View full size: Still Life with Pomegranate and Orange">
+            </div>
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="14 of 15">
+              <img class="zoomable" src="images/between-silence-and-depth.jpg" alt="Between Silence and Depth, oil on canvas, 30 × 40 cm" draggable="false" loading="lazy" role="button" tabindex="-1" aria-label="View full size: Between Silence and Depth">
+            </div>
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="15 of 15">
+              <img class="zoomable" src="images/sunflowers.jpg" alt="Sunflowers, oil on canvas, 50 × 30 cm" draggable="false" loading="lazy" role="button" tabindex="-1" aria-label="View full size: Sunflowers">
             </div>
           </div>
         </div>
@@ -129,12 +148,32 @@
 
       <div class="cf__captions" aria-live="polite">
         <div class="cf__caption">
+          <p class="cf__title">Before Christmas</p>
+          <p class="cf__subtitle">01 / 15</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.acrylic">Acrylic on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>85 × 110 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
           <p class="cf__title">Grandma's Pear</p>
-          <p class="cf__subtitle">01 / 08</p>
+          <p class="cf__subtitle">02 / 15</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>85 × 85 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">After the Touch</p>
+          <p class="cf__subtitle">03 / 15</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.acrylic">Acrylic on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>60 × 85 cm</dd></div>
+          </dl>
         </div>
         <div class="cf__caption">
           <p class="cf__title">Letter – Thoughts Before Sunrise</p>
-          <p class="cf__subtitle">02 / 08</p>
+          <p class="cf__subtitle">04 / 15</p>
           <dl class="cf__meta">
             <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.acrylic">Acrylic on canvas</dd></div>
             <div><dt data-i18n="meta.size">Size</dt><dd>85 × 110 cm</dd></div>
@@ -142,50 +181,90 @@
         </div>
         <div class="cf__caption">
           <p class="cf__title">Wild Bloom</p>
-          <p class="cf__subtitle">03 / 08</p>
+          <p class="cf__subtitle">05 / 15</p>
           <dl class="cf__meta">
             <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
             <div><dt data-i18n="meta.size">Size</dt><dd>60 × 80 cm</dd></div>
-          </dl>
-        </div>
-        <div class="cf__caption">
-          <p class="cf__title">Horizon in Motion</p>
-          <p class="cf__subtitle">04 / 08</p>
-          <dl class="cf__meta">
-            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oilDiptych">Oil on canvas, diptych</dd></div>
-            <div><dt data-i18n="meta.size">Size</dt><dd>60 × 80 cm</dd></div>
-          </dl>
-        </div>
-        <div class="cf__caption">
-          <p class="cf__title">Roses</p>
-          <p class="cf__subtitle">05 / 08</p>
-          <dl class="cf__meta">
-            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
-            <div><dt data-i18n="meta.size">Size</dt><dd>60 × 60 cm</dd></div>
-          </dl>
-        </div>
-        <div class="cf__caption">
-          <p class="cf__title">Between Silence and Depth</p>
-          <p class="cf__subtitle">06 / 08</p>
-          <dl class="cf__meta">
-            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
-            <div><dt data-i18n="meta.size">Size</dt><dd>30 × 40 cm</dd></div>
           </dl>
         </div>
         <div class="cf__caption">
           <p class="cf__title">The Little White Lamb</p>
-          <p class="cf__subtitle">07 / 08</p>
+          <p class="cf__subtitle">06 / 15</p>
           <dl class="cf__meta">
             <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
             <div><dt data-i18n="meta.size">Size</dt><dd>85 × 110 cm</dd></div>
           </dl>
         </div>
         <div class="cf__caption">
+          <p class="cf__title">The Apples and Pears</p>
+          <p class="cf__subtitle">07 / 15</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>85 × 30 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">Roses</p>
+          <p class="cf__subtitle">08 / 15</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>60 × 60 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">The Road at Home, Old Orhey</p>
+          <p class="cf__subtitle">09 / 15</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>85 × 85 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
           <p class="cf__title">Crimson Pulse</p>
-          <p class="cf__subtitle">08 / 08</p>
+          <p class="cf__subtitle">10 / 15</p>
           <dl class="cf__meta">
             <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
             <div><dt data-i18n="meta.size">Size</dt><dd>60 × 110 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">Horizon in Motion</p>
+          <p class="cf__subtitle">11 / 15</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oilDiptych">Oil on canvas, diptych</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>60 × 80 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">Pink Roses and Tea</p>
+          <p class="cf__subtitle">12 / 15</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>40 × 70 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">Still Life with Pomegranate and Orange</p>
+          <p class="cf__subtitle">13 / 15</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>50 × 30 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">Between Silence and Depth</p>
+          <p class="cf__subtitle">14 / 15</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>30 × 40 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">Sunflowers</p>
+          <p class="cf__subtitle">15 / 15</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>50 × 30 cm</dd></div>
           </dl>
         </div>
       </div>
