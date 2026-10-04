@@ -535,16 +535,63 @@ ul { padding: 0; list-style: none; }
   padding: clamp(56px, 8vw, 96px) var(--gutter);
   border-top: 1px solid var(--border);
 }
-.exhibitions .section-hint {
+.exhibitions__union {
   max-width: 60ch;
   margin: 8px auto 0;
+  text-align: center;
+}
+
+/* Whole section folds under its heading; grid rows animate the height. */
+.fold-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px 4px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.fold-toggle:hover { background: var(--muted); }
+.fold-toggle svg {
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.35s var(--ease);
+}
+.fold-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+.fold {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s var(--ease), visibility 0.5s;
+  visibility: hidden;
+}
+.fold.is-open {
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+.fold__inner { min-height: 0; overflow: hidden; }
+@media (prefers-reduced-motion: reduce) {
+  .fold, .fold-toggle svg { transition: none; }
 }
 .exhibitions__card {
   max-width: var(--max);
   margin: 28px auto 0;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--card);
+  border-radius: 0;
+  /* One flat fill for the whole table — the lighter of the two greys. */
+  background: var(--muted);
   overflow: hidden;
 }
 .exhibitions__group + .exhibitions__group { border-top: 1px solid var(--border); }
@@ -552,7 +599,7 @@ ul { padding: 0; list-style: none; }
   padding: 12px 20px;
   font-size: 13px;
   font-weight: 600;
-  background: var(--muted);
+  border-bottom: 1px solid var(--border);
   font-variant-numeric: tabular-nums;
 }
 .exhibitions__group li {
@@ -602,7 +649,7 @@ ul { padding: 0; list-style: none; }
   cursor: pointer;
   transition: background 0.2s;
 }
-.exhibitions__more:hover { background: var(--muted); }
+.exhibitions__more:hover { background: color-mix(in srgb, var(--foreground) 5%, transparent); }
 .exhibitions__more .when-open,
 .exhibitions__card.is-expanded .exhibitions__more .when-closed { display: none; }
 .exhibitions__card.is-expanded .exhibitions__more .when-open { display: inline; }

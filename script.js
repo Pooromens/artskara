@@ -243,6 +243,31 @@ if (lightbox && zoomables.length) {
   });
 }
 
+// ---------- Exhibitions: folded section ----------
+const exhibitionsFold = document.getElementById('exhibitionsBody');
+const exhibitionsToggle = document.querySelector('[aria-controls="exhibitionsBody"]');
+
+function setExhibitionsOpen(open) {
+  exhibitionsFold.classList.toggle('is-open', open);
+  exhibitionsToggle.setAttribute('aria-expanded', String(open));
+}
+
+if (exhibitionsFold && exhibitionsToggle) {
+  exhibitionsToggle.addEventListener('click', () => {
+    setExhibitionsOpen(!exhibitionsFold.classList.contains('is-open'));
+  });
+
+  // Arriving via the nav link (or a shared #exhibitions URL) opens it.
+  const openFromHash = () => {
+    if (location.hash === '#exhibitions') setExhibitionsOpen(true);
+  };
+  document.querySelectorAll('a[href="#exhibitions"]').forEach((link) => {
+    link.addEventListener('click', () => setExhibitionsOpen(true));
+  });
+  window.addEventListener('hashchange', openFromHash);
+  openFromHash();
+}
+
 // ---------- Exhibitions: show full history ----------
 const exhibitionsList = document.getElementById('exhibitionsList');
 const exhibitionsMore = exhibitionsList?.querySelector('.exhibitions__more');

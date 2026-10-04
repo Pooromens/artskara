@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style-d.css?v=8">
+<link rel="stylesheet" href="style-d.css?v=10">
 </head>
 <body>
 
@@ -296,9 +296,16 @@
 
   <section id="exhibitions" class="exhibitions">
     <div class="section-head reveal">
-      <h2 class="section-title" data-i18n="exhibitions.title">Exhibitions</h2>
-      <p class="section-hint" data-i18n="exhibitions.union">Since 2010, a regular participant in exhibitions and competitions of the Union of Artists of Moldova.</p>
+      <h2 class="section-title">
+        <button class="fold-toggle" type="button" aria-expanded="false" aria-controls="exhibitionsBody">
+          <span data-i18n="exhibitions.title">Exhibitions</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </h2>
     </div>
+    <div class="fold" id="exhibitionsBody">
+      <div class="fold__inner">
+      <p class="section-hint exhibitions__union" data-i18n="exhibitions.union">Since 2010, a regular participant in exhibitions and competitions of the Union of Artists of Moldova.</p>
     <div class="exhibitions__card reveal" id="exhibitionsList">
       <div class="exhibitions__group">
         <h3>2026</h3>
@@ -444,6 +451,8 @@
         </ul>
       </div>
     </div>
+      </div>
+    </div>
   </section>
 
   <section id="contact" class="contact">
@@ -485,6 +494,6 @@
 </div>
 
 <script src="coverflow.js?v=2"></script>
-<script src="script.js?v=3"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>
