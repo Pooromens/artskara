@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Irina Kara — Paintings & Works on Paper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <a class="nav__mark" href="#top">Irina Kara</a>
+  <nav class="nav__links">
+    <a href="#work" data-i18n="nav.work">Work</a>
+    <a href="#about" data-i18n="nav.about">About</a>
+    <a href="#exhibitions" data-i18n="nav.exhibitions">Exhibitions</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+    <span class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang-btn="en">EN</button>
+      <button type="button" data-lang-btn="ru">RU</button>
+      <button type="button" data-lang-btn="ro">RO</button>
+    </span>
+  </nav>
+  <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#work" data-i18n="nav.work">Work</a>
+  <a href="#about" data-i18n="nav.about">About</a>
+  <a href="#exhibitions" data-i18n="nav.exhibitions">Exhibitions</a>
+  <a href="#contact" data-i18n="nav.contact">Contact</a>
+  <span class="lang-switch lang-switch--mobile" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en">EN</button>
+    <button type="button" data-lang-btn="ru">RU</button>
+    <button type="button" data-lang-btn="ro">RO</button>
+  </span>
+</div>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero__crossline" aria-hidden="true"></div>
+    <div class="hero__text reveal">
+      <p class="hero__eyebrow" data-i18n="hero.eyebrow">Painter, based in Chișinău</p>
+      <h1 class="hero__title">Irina <em>Kara</em></h1>
+      <img class="hero__avatar" src="images/artist-avatar.jpg" alt="Irina Kara">
+      <div class="hero__socials">
+        <a href="https://www.instagram.com/artskara/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="mailto:artskara@gmail.com">Email</a>
+        <a href="https://www.saatchiart.com/account/profile/97227" target="_blank" rel="noopener noreferrer">Saatchi Art</a>
+      </div>
+      <p class="hero__sub" data-i18n="hero.sub">Paintings built on the expressive power of color, light, and texture.</p>
+      <a class="btn" href="#work"><span data-i18n="hero.cta">View the work</span><span class="btn__icon">↗</span></a>
+    </div>
+    <div class="hero__image reveal">
+      <img class="zoomable" src="images/grandmas-pear.jpg" alt="Grandma's Pear, painting by Irina Kara" loading="eager" role="button" tabindex="0" aria-label="View full size: Grandma's Pear">
+    </div>
+  </section>
+
+  <section id="work" class="work">
+    <h2 class="section-title reveal" data-i18n="work.title">Selected Work</h2>
+    <div class="gallery">
+      <figure class="gallery__item gallery__item--tall reveal">
+        <img class="zoomable" src="images/letter-thoughts-before-sunrise.jpg" alt="Letter – Thoughts Before Sunrise, acrylic on canvas" role="button" tabindex="0" aria-label="View full size: Letter – Thoughts Before Sunrise">
+        <figcaption><span>Letter – Thoughts Before Sunrise</span><span>Acrylic on canvas, 85 × 110 cm</span></figcaption>
+      </figure>
+      <figure class="gallery__item reveal">
+        <img class="zoomable" src="images/wild-bloom.jpg" alt="Wild Bloom, oil on canvas" role="button" tabindex="0" aria-label="View full size: Wild Bloom">
+        <figcaption><span>Wild Bloom</span><span>Oil on canvas, 60 × 80 cm</span></figcaption>
+      </figure>
+      <figure class="gallery__item reveal">
+        <img class="zoomable" src="images/horizon-in-motion.jpg" alt="Horizon in Motion, oil on canvas diptych" role="button" tabindex="0" aria-label="View full size: Horizon in Motion">
+        <figcaption><span>Horizon in Motion</span><span>Oil on canvas, diptych, 60 × 80 cm</span></figcaption>
+      </figure>
+      <figure class="gallery__item gallery__item--wide reveal">
+        <img class="zoomable" src="images/roses.jpg" alt="Roses, oil on canvas" role="button" tabindex="0" aria-label="View full size: Roses">
+        <figcaption><span>Roses</span><span>Oil on canvas, 60 × 60 cm</span></figcaption>
+      </figure>
+      <figure class="gallery__item gallery__item--tall reveal">
+        <img class="zoomable" src="images/between-silence-and-depth.jpg" alt="Between Silence and Depth, oil on canvas" role="button" tabindex="0" aria-label="View full size: Between Silence and Depth">
+        <figcaption><span>Between Silence and Depth</span><span>Oil on canvas, 30 × 40 cm</span></figcaption>
+      </figure>
+      <figure class="gallery__item gallery__item--tall reveal">
+        <img class="zoomable" src="images/the-little-white-lamb.jpg" alt="The Little White Lamb, oil on canvas" role="button" tabindex="0" aria-label="View full size: The Little White Lamb">
+        <figcaption><span>The Little White Lamb</span><span>Oil on canvas, 85 × 110 cm</span></figcaption>
+      </figure>
+      <figure class="gallery__item gallery__item--tall reveal">
+        <img class="zoomable" src="images/crimson-pulse.jpg" alt="Crimson Pulse, oil on canvas" role="button" tabindex="0" aria-label="View full size: Crimson Pulse">
+        <figcaption><span>Crimson Pulse</span><span>Oil on canvas, 60 × 110 cm</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="about__portrait reveal">
+      <img src="images/studio-portrait.jpg" alt="Irina Kara in her studio">
+    </div>
+    <div class="about__text reveal">
+      <h2 class="section-title" data-i18n="about.title">About</h2>
+      <p data-i18n="about.p1">Irina Kara is a contemporary painter from Chișinău whose work is built on the expressive power of color, light, and texture. Trained as an architect, she brings a structural way of thinking together with an intuitive, emotional approach to painting.</p>
+      <p data-i18n="about.p2">In her work, color becomes the primary means of conveying mood, energy, and impression. A rich palette, dynamic brushwork, and a blend of abstract and semi-figurative forms create a recognizable visual language of her own.</p>
+      <p data-i18n="about.p3">Irina Kara has taken part in solo and international group exhibitions in Moldova and abroad, including projects in London. Her works are held in private collections in several countries.</p>
+    </div>
+  </section>
+
+  <section id="exhibitions" class="exhibitions">
+    <h2 class="section-title reveal" data-i18n="exhibitions.title">Exhibitions</h2>
+    <div class="exhibitions__list">
+      <div class="exhibitions__group reveal placeholder-block">
+        <h3 data-i18n="exhibitions.placeholderYear">Add year</h3>
+        <ul>
+          <li><span data-i18n="exhibitions.placeholderItem">Exhibition title</span><span data-i18n="exhibitions.placeholderVenue">City, venue</span></li>
+          <li><span data-i18n="exhibitions.placeholderItem">Exhibition title</span><span data-i18n="exhibitions.placeholderVenue">City, venue</span></li>
+        </ul>
+      </div>
+      <div class="exhibitions__group reveal placeholder-block">
+        <h3 data-i18n="exhibitions.placeholderYear2">Add year</h3>
+        <ul>
+          <li><span data-i18n="exhibitions.placeholderItem">Exhibition title</span><span data-i18n="exhibitions.placeholderVenue">City, venue</span></li>
+          <li><span data-i18n="exhibitions.placeholderItem">Exhibition title</span><span data-i18n="exhibitions.placeholderVenue">City, venue</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="placeholder-note reveal" data-i18n="exhibitions.note">— Replace with the actual exhibition history.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="section-title reveal" data-i18n="contact.title">Contact</h2>
+    <p class="reveal" data-i18n="contact.sub">For inquiries about available work, commissions, or studio visits.</p>
+    <a class="btn btn--dark reveal" href="mailto:artskara@gmail.com"><span data-i18n="contact.cta">Email the studio</span><span class="btn__icon">↗</span></a>
+    <p class="contact__address reveal">artskara@gmail.com</p>
+    <div class="contact__socials reveal">
+      <a href="https://www.instagram.com/artskara/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.saatchiart.com/account/profile/97227" target="_blank" rel="noopener noreferrer">Saatchi Art</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>© 2026 Irina Kara</span>
+  <div class="footer__social">
+    <a href="https://www.instagram.com/artskara/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+    <a href="#" aria-label="Artsy">Artsy</a>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Full-size artwork view">
+  <button class="lightbox__close" type="button" aria-label="Close">✕</button>
+  <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous artwork">‹</button>
+  <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next artwork">›</button>
+  <figure class="lightbox__figure">
+    <img class="lightbox__img" src="" alt="">
+    <figcaption class="lightbox__caption"></figcaption>
+  </figure>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

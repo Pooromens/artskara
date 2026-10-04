@@ -6,27 +6,29 @@
 <title>Irina Kara — Paintings & Works on Paper</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style-d.css">
 </head>
 <body>
 
 <header class="nav">
-  <a class="nav__mark" href="#top">Irina Kara</a>
-  <nav class="nav__links">
-    <a href="#work" data-i18n="nav.work">Work</a>
-    <a href="#about" data-i18n="nav.about">About</a>
-    <a href="#exhibitions" data-i18n="nav.exhibitions">Exhibitions</a>
-    <a href="#contact" data-i18n="nav.contact">Contact</a>
-    <span class="lang-switch" role="group" aria-label="Language">
-      <button type="button" data-lang-btn="en">EN</button>
-      <button type="button" data-lang-btn="ru">RU</button>
-      <button type="button" data-lang-btn="ro">RO</button>
-    </span>
-  </nav>
-  <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span>
-  </button>
+  <div class="nav__inner">
+    <a class="nav__mark" href="#top">Irina Kara</a>
+    <nav class="nav__links">
+      <a href="#work" data-i18n="nav.work">Work</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#exhibitions" data-i18n="nav.exhibitions">Exhibitions</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <span class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="en">EN</button>
+        <button type="button" data-lang-btn="ru">RU</button>
+        <button type="button" data-lang-btn="ro">RO</button>
+      </span>
+    </nav>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
@@ -34,7 +36,7 @@
   <a href="#about" data-i18n="nav.about">About</a>
   <a href="#exhibitions" data-i18n="nav.exhibitions">Exhibitions</a>
   <a href="#contact" data-i18n="nav.contact">Contact</a>
-  <span class="lang-switch lang-switch--mobile" role="group" aria-label="Language">
+  <span class="lang-switch" role="group" aria-label="Language">
     <button type="button" data-lang-btn="en">EN</button>
     <button type="button" data-lang-btn="ru">RU</button>
     <button type="button" data-lang-btn="ro">RO</button>
@@ -44,61 +46,157 @@
 <main id="top">
 
   <section class="hero">
-    <div class="hero__crossline" aria-hidden="true"></div>
     <div class="hero__text reveal">
-      <p class="hero__eyebrow" data-i18n="hero.eyebrow">Painter, based in Chișinău</p>
-      <h1 class="hero__title">Irina <em>Kara</em></h1>
-      <img class="hero__avatar" src="images/artist-avatar.jpg" alt="Irina Kara">
-      <div class="hero__socials">
-        <a href="https://www.instagram.com/artskara/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="mailto:artskara@gmail.com">Email</a>
-        <a href="https://www.saatchiart.com/account/profile/97227" target="_blank" rel="noopener noreferrer">Saatchi Art</a>
+      <span class="badge">
+        <img class="badge__avatar" src="images/artist-avatar.jpg" alt="">
+        <span data-i18n="hero.eyebrow">Painter, based in Chișinău</span>
+      </span>
+      <div class="hero__head">
+        <h1 class="hero__title">Irina Kara</h1>
+        <ul class="hero__contacts">
+          <li>
+            <a href="https://www.instagram.com/artskara/" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+              <span>Instagram</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:artskara@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <span>artskara@gmail.com</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.saatchiart.com/account/profile/97227" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"/><rect x="8" y="7" width="8" height="10"/></svg>
+              <span>Saatchi Art</span>
+            </a>
+          </li>
+        </ul>
       </div>
       <p class="hero__sub" data-i18n="hero.sub">Paintings built on the expressive power of color, light, and texture.</p>
-      <a class="btn" href="#work"><span data-i18n="hero.cta">View the work</span><span class="btn__icon">↗</span></a>
-    </div>
-    <div class="hero__image reveal">
-      <img class="zoomable" src="images/grandmas-pear.jpg" alt="Grandma's Pear, painting by Irina Kara" loading="eager" role="button" tabindex="0" aria-label="View full size: Grandma's Pear">
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#work"><span data-i18n="hero.cta">View the work</span><span aria-hidden="true">↓</span></a>
+        <a class="btn btn--outline" href="#contact" data-i18n="nav.contact">Contact</a>
+      </div>
     </div>
   </section>
 
   <section id="work" class="work">
-    <h2 class="section-title reveal" data-i18n="work.title">Selected Work</h2>
-    <div class="gallery">
-      <figure class="gallery__item gallery__item--tall reveal">
-        <img class="zoomable" src="images/letter-thoughts-before-sunrise.jpg" alt="Letter – Thoughts Before Sunrise, acrylic on canvas" role="button" tabindex="0" aria-label="View full size: Letter – Thoughts Before Sunrise">
-        <figcaption><span>Letter – Thoughts Before Sunrise</span><span>Acrylic on canvas, 85 × 110 cm</span></figcaption>
-      </figure>
-      <figure class="gallery__item reveal">
-        <img class="zoomable" src="images/wild-bloom.jpg" alt="Wild Bloom, oil on canvas" role="button" tabindex="0" aria-label="View full size: Wild Bloom">
-        <figcaption><span>Wild Bloom</span><span>Oil on canvas, 60 × 80 cm</span></figcaption>
-      </figure>
-      <figure class="gallery__item reveal">
-        <img class="zoomable" src="images/horizon-in-motion.jpg" alt="Horizon in Motion, oil on canvas diptych" role="button" tabindex="0" aria-label="View full size: Horizon in Motion">
-        <figcaption><span>Horizon in Motion</span><span>Oil on canvas, diptych, 60 × 80 cm</span></figcaption>
-      </figure>
-      <figure class="gallery__item gallery__item--wide reveal">
-        <img class="zoomable" src="images/roses.jpg" alt="Roses, oil on canvas" role="button" tabindex="0" aria-label="View full size: Roses">
-        <figcaption><span>Roses</span><span>Oil on canvas, 60 × 60 cm</span></figcaption>
-      </figure>
-      <figure class="gallery__item gallery__item--tall reveal">
-        <img class="zoomable" src="images/between-silence-and-depth.jpg" alt="Between Silence and Depth, oil on canvas" role="button" tabindex="0" aria-label="View full size: Between Silence and Depth">
-        <figcaption><span>Between Silence and Depth</span><span>Oil on canvas, 30 × 40 cm</span></figcaption>
-      </figure>
-      <figure class="gallery__item gallery__item--tall reveal">
-        <img class="zoomable" src="images/the-little-white-lamb.jpg" alt="The Little White Lamb, oil on canvas" role="button" tabindex="0" aria-label="View full size: The Little White Lamb">
-        <figcaption><span>The Little White Lamb</span><span>Oil on canvas, 85 × 110 cm</span></figcaption>
-      </figure>
-      <figure class="gallery__item gallery__item--tall reveal">
-        <img class="zoomable" src="images/crimson-pulse.jpg" alt="Crimson Pulse, oil on canvas" role="button" tabindex="0" aria-label="View full size: Crimson Pulse">
-        <figcaption><span>Crimson Pulse</span><span>Oil on canvas, 60 × 110 cm</span></figcaption>
-      </figure>
+    <div class="section-head reveal">
+      <h2 class="section-title" data-i18n="work.title">Selected Work</h2>
+      <p class="section-hint" data-i18n="work.hint">Drag, swipe or use the arrow keys</p>
+    </div>
+
+    <div class="cf reveal" data-coverflow role="region" aria-roledescription="carousel" aria-label="Selected work">
+      <div class="cf__stage">
+        <div class="cf__frame" tabindex="0">
+          <div class="cf__track">
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="1 of 8">
+              <img class="zoomable" src="images/grandmas-pear.jpg" alt="Grandma's Pear, painting by Irina Kara" draggable="false" loading="eager" role="button" tabindex="-1" aria-label="View full size: Grandma's Pear">
+            </div>
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="2 of 8">
+              <img class="zoomable" src="images/letter-thoughts-before-sunrise.jpg" alt="Letter – Thoughts Before Sunrise, acrylic on canvas, 85 × 110 cm" draggable="false" loading="eager" role="button" tabindex="-1" aria-label="View full size: Letter – Thoughts Before Sunrise">
+            </div>
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="3 of 8">
+              <img class="zoomable" src="images/wild-bloom.jpg" alt="Wild Bloom, oil on canvas, 60 × 80 cm" draggable="false" loading="eager" role="button" tabindex="-1" aria-label="View full size: Wild Bloom">
+            </div>
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="4 of 8">
+              <img class="zoomable" src="images/horizon-in-motion.jpg" alt="Horizon in Motion, oil on canvas, diptych, 60 × 80 cm" draggable="false" role="button" tabindex="-1" aria-label="View full size: Horizon in Motion">
+            </div>
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="5 of 8">
+              <img class="zoomable" src="images/roses.jpg" alt="Roses, oil on canvas, 60 × 60 cm" draggable="false" role="button" tabindex="-1" aria-label="View full size: Roses">
+            </div>
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="6 of 8">
+              <img class="zoomable" src="images/between-silence-and-depth.jpg" alt="Between Silence and Depth, oil on canvas, 30 × 40 cm" draggable="false" role="button" tabindex="-1" aria-label="View full size: Between Silence and Depth">
+            </div>
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="7 of 8">
+              <img class="zoomable" src="images/the-little-white-lamb.jpg" alt="The Little White Lamb, oil on canvas, 85 × 110 cm" draggable="false" role="button" tabindex="-1" aria-label="View full size: The Little White Lamb">
+            </div>
+            <div class="cf__card" role="group" aria-roledescription="slide" aria-label="8 of 8">
+              <img class="zoomable" src="images/crimson-pulse.jpg" alt="Crimson Pulse, oil on canvas, 60 × 110 cm" draggable="false" role="button" tabindex="-1" aria-label="View full size: Crimson Pulse">
+            </div>
+          </div>
+        </div>
+
+        <button class="cf__nav cf__nav--prev" type="button" aria-label="Previous slide">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="cf__nav cf__nav--next" type="button" aria-label="Next slide">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="cf__captions" aria-live="polite">
+        <div class="cf__caption">
+          <p class="cf__title">Grandma's Pear</p>
+          <p class="cf__subtitle">01 / 08</p>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">Letter – Thoughts Before Sunrise</p>
+          <p class="cf__subtitle">02 / 08</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.acrylic">Acrylic on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>85 × 110 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">Wild Bloom</p>
+          <p class="cf__subtitle">03 / 08</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>60 × 80 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">Horizon in Motion</p>
+          <p class="cf__subtitle">04 / 08</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oilDiptych">Oil on canvas, diptych</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>60 × 80 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">Roses</p>
+          <p class="cf__subtitle">05 / 08</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>60 × 60 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">Between Silence and Depth</p>
+          <p class="cf__subtitle">06 / 08</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>30 × 40 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">The Little White Lamb</p>
+          <p class="cf__subtitle">07 / 08</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>85 × 110 cm</dd></div>
+          </dl>
+        </div>
+        <div class="cf__caption">
+          <p class="cf__title">Crimson Pulse</p>
+          <p class="cf__subtitle">08 / 08</p>
+          <dl class="cf__meta">
+            <div><dt data-i18n="meta.medium">Medium</dt><dd data-i18n="medium.oil">Oil on canvas</dd></div>
+            <div><dt data-i18n="meta.size">Size</dt><dd>60 × 110 cm</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="cf__dots"></div>
     </div>
   </section>
 
   <section id="about" class="about">
     <div class="about__portrait reveal">
-      <img src="images/studio-portrait.jpg" alt="Irina Kara in her studio">
+      <img src="images/studio-portrait.jpg" alt="Irina Kara in her studio" loading="lazy">
     </div>
     <div class="about__text reveal">
       <h2 class="section-title" data-i18n="about.title">About</h2>
@@ -109,16 +207,18 @@
   </section>
 
   <section id="exhibitions" class="exhibitions">
-    <h2 class="section-title reveal" data-i18n="exhibitions.title">Exhibitions</h2>
-    <div class="exhibitions__list">
-      <div class="exhibitions__group reveal placeholder-block">
+    <div class="section-head reveal">
+      <h2 class="section-title" data-i18n="exhibitions.title">Exhibitions</h2>
+    </div>
+    <div class="exhibitions__card reveal">
+      <div class="exhibitions__group placeholder-block">
         <h3 data-i18n="exhibitions.placeholderYear">Add year</h3>
         <ul>
           <li><span data-i18n="exhibitions.placeholderItem">Exhibition title</span><span data-i18n="exhibitions.placeholderVenue">City, venue</span></li>
           <li><span data-i18n="exhibitions.placeholderItem">Exhibition title</span><span data-i18n="exhibitions.placeholderVenue">City, venue</span></li>
         </ul>
       </div>
-      <div class="exhibitions__group reveal placeholder-block">
+      <div class="exhibitions__group placeholder-block">
         <h3 data-i18n="exhibitions.placeholderYear2">Add year</h3>
         <ul>
           <li><span data-i18n="exhibitions.placeholderItem">Exhibition title</span><span data-i18n="exhibitions.placeholderVenue">City, venue</span></li>
@@ -130,23 +230,28 @@
   </section>
 
   <section id="contact" class="contact">
-    <h2 class="section-title reveal" data-i18n="contact.title">Contact</h2>
-    <p class="reveal" data-i18n="contact.sub">For inquiries about available work, commissions, or studio visits.</p>
-    <a class="btn btn--dark reveal" href="mailto:artskara@gmail.com"><span data-i18n="contact.cta">Email the studio</span><span class="btn__icon">↗</span></a>
-    <p class="contact__address reveal">artskara@gmail.com</p>
-    <div class="contact__socials reveal">
-      <a href="https://www.instagram.com/artskara/" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.saatchiart.com/account/profile/97227" target="_blank" rel="noopener noreferrer">Saatchi Art</a>
+    <div class="contact__card reveal">
+      <img class="contact__avatar" src="images/artist-avatar.jpg" alt="" loading="lazy">
+      <h2 class="section-title" data-i18n="contact.title">Contact</h2>
+      <p class="contact__sub" data-i18n="contact.sub">For inquiries about available work, commissions, or studio visits.</p>
+      <a class="btn btn--primary" href="mailto:artskara@gmail.com"><span data-i18n="contact.cta">Email the studio</span><span aria-hidden="true">↗</span></a>
+      <dl class="contact__meta">
+        <div><dt>Email</dt><dd><a href="mailto:artskara@gmail.com">artskara@gmail.com</a></dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/artskara/" target="_blank" rel="noopener noreferrer">@artskara</a></dd></div>
+        <div><dt>Saatchi Art</dt><dd><a href="https://www.saatchiart.com/account/profile/97227" target="_blank" rel="noopener noreferrer">Irina Kara ↗</a></dd></div>
+      </dl>
     </div>
   </section>
 
 </main>
 
 <footer class="footer">
-  <span>© 2026 Irina Kara</span>
-  <div class="footer__social">
-    <a href="https://www.instagram.com/artskara/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-    <a href="#" aria-label="Artsy">Artsy</a>
+  <div class="footer__inner">
+    <span>© 2026 Irina Kara</span>
+    <div class="footer__social">
+      <a href="https://www.instagram.com/artskara/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.saatchiart.com/account/profile/97227" target="_blank" rel="noopener noreferrer">Saatchi Art</a>
+    </div>
   </div>
 </footer>
 
@@ -160,6 +265,7 @@
   </figure>
 </div>
 
+<script src="coverflow.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
