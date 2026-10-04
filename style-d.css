@@ -589,9 +589,9 @@ ul { padding: 0; list-style: none; }
   max-width: var(--max);
   margin: 28px auto 0;
   border: 1px solid var(--border);
-  border-radius: 0;
-  /* One flat fill for the whole table — the lighter of the two greys. */
-  background: var(--muted);
+  border-radius: 8px;
+  /* One flat fill for the whole table. */
+  background: var(--card);
   overflow: hidden;
 }
 .exhibitions__group + .exhibitions__group { border-top: 1px solid var(--border); }
