@@ -20,6 +20,12 @@ const translations = {
     'about.p2': 'In her work, color becomes the primary means of conveying mood, energy, and impression. A rich palette, dynamic brushwork, and a blend of abstract and semi-figurative forms create a recognizable visual language of her own.',
     'about.p3': 'Irina Kara has taken part in solo and international group exhibitions in Moldova and abroad, including projects in London. Her works are held in private collections in several countries.',
     'exhibitions.title': 'Exhibitions',
+    'exhibitions.union': 'Since 2010, a regular participant in exhibitions and competitions of the Union of Artists of Moldova.',
+    'exhibitions.solo': 'Solo',
+    'exhibitions.award': 'Award',
+    'exhibitions.showAll': 'Show full history',
+    'exhibitions.showLess': 'Show less',
+    'exhibitions.collections': 'Works in public collections',
     'exhibitions.placeholderYear': 'Add year',
     'exhibitions.placeholderYear2': 'Add year',
     'exhibitions.placeholderItem': 'Exhibition title',
@@ -49,6 +55,12 @@ const translations = {
     'about.p2': 'В её работах цвет становится главным средством передачи состояния, энергии и впечатления. Насыщенная палитра, динамичный мазок и сочетание абстрактных и полуфигуративных форм создают узнаваемый авторский язык.',
     'about.p3': 'Ирина Кара участвовала в персональных и международных групповых выставках в Молдове и за рубежом, включая проекты в Лондоне. Её работы находятся в частных коллекциях в разных странах.',
     'exhibitions.title': 'Выставки',
+    'exhibitions.union': 'С 2010 года — постоянный участник выставок и конкурсов Союза художников Молдовы.',
+    'exhibitions.solo': 'Персональная',
+    'exhibitions.award': 'Награда',
+    'exhibitions.showAll': 'Показать все выставки',
+    'exhibitions.showLess': 'Свернуть',
+    'exhibitions.collections': 'Работы в публичных коллекциях',
     'exhibitions.placeholderYear': 'Добавьте год',
     'exhibitions.placeholderYear2': 'Добавьте год',
     'exhibitions.placeholderItem': 'Название выставки',
@@ -78,6 +90,12 @@ const translations = {
     'about.p2': 'În lucrările sale, culoarea devine principalul mijloc de transmitere a stării, energiei și impresiei. O paletă intensă, tușa dinamică și îmbinarea formelor abstracte cu cele semi-figurative creează un limbaj artistic ușor de recunoscut.',
     'about.p3': 'Irina Kara a participat la expoziții personale și expoziții internaționale de grup în Moldova și peste hotare, inclusiv proiecte la Londra. Lucrările sale se află în colecții private din mai multe țări.',
     'exhibitions.title': 'Expoziții',
+    'exhibitions.union': 'Din 2010 participă la expozițiile și concursurile organizate de Uniunea Artiștilor Plastici din Moldova.',
+    'exhibitions.solo': 'Personală',
+    'exhibitions.award': 'Premiu',
+    'exhibitions.showAll': 'Arată toate expozițiile',
+    'exhibitions.showLess': 'Restrânge',
+    'exhibitions.collections': 'Lucrări în colecții publice',
     'exhibitions.placeholderYear': 'Adaugă anul',
     'exhibitions.placeholderYear2': 'Adaugă anul',
     'exhibitions.placeholderItem': 'Titlul expoziției',
@@ -222,6 +240,19 @@ if (lightbox && zoomables.length) {
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') step(-1);
     if (e.key === 'ArrowRight') step(1);
+  });
+}
+
+// ---------- Exhibitions: show full history ----------
+const exhibitionsList = document.getElementById('exhibitionsList');
+const exhibitionsMore = exhibitionsList?.querySelector('.exhibitions__more');
+
+if (exhibitionsMore) {
+  exhibitionsMore.addEventListener('click', () => {
+    const open = exhibitionsList.classList.toggle('is-expanded');
+    exhibitionsMore.setAttribute('aria-expanded', String(open));
+    // Folding back up would leave the reader far below the list; return them to it.
+    if (!open) exhibitionsList.scrollIntoView({ block: 'start' });
   });
 }
 
