@@ -1,7 +1,10 @@
 // ---------- Coverflow carousel ----------
-// Vanilla port of the CoverflowCarousel React component. Markup is authored in
-// the HTML (cards + captions); this file only drives the rake and the settle.
-// Must load before script.js so the lightbox and i18n see the captions.
+// Vanilla port of the CoverflowCarousel React component, extended so every
+// card keeps its painting's own proportions: cards share a height, take their
+// width from the image, and are laid out along a ring by their real widths.
+// Markup is authored in the HTML (cards + captions); this file only drives
+// the layout and the settle. Must load before script.js so the lightbox and
+// i18n see the captions.
 
 (function () {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -12,44 +15,84 @@
       return Number.isFinite(value) ? value : fallback;
     };
 
-    /** Degrees the first neighbour tilts. */
+    /** Degrees the first neighbour tilts; 0 keeps every card flat. */
     const rotate = num('rotate', 44);
-    /** How far the first neighbour recedes, as a fraction of card width. */
-    const depth = num('depth', 0.6);
-    /** Viewer distance as a multiple of card width — smaller is a wider lens. */
+    /** How far the first neighbour recedes, as a fraction of card height. */
+    const depth = num('depth', 0.5);
+    /** Viewer distance as a multiple of card height — smaller is a wider lens. */
     const perspective = num('perspective', 3);
     /** Exponent on distance. Below 1 the rake eases off as cards travel out. */
     const falloff = num('falloff', 0.56);
     /** Opacity lost per step from the centre. */
     const fade = num('fade', 0.1);
-    /** Space between cards, as a fraction of card width. */
-    const gap = num('gap', 0.05);
+    /** Space between cards, as a fraction of card height. */
+    const gap = num('gap', 0.06);
+    /** Widest a card may be, as a multiple of its height. Wider paintings shrink to fit. */
+    const maxAspect = num('maxAspect', 1.6);
     const loop = root.dataset.loop !== 'false';
     /** Cards per second the ring drifts on its own; 0 turns it off. */
     const autoplay = loop && !reduceMotion ? num('autoplay', 0.3) : 0;
 
     const frame = root.querySelector('.cf__frame');
+    const track = root.querySelector('.cf__track');
     const cards = Array.from(root.querySelectorAll('.cf__card'));
     const captions = Array.from(root.querySelectorAll('.cf__caption'));
     const dotsWrap = root.querySelector('.cf__dots');
     const count = cards.length;
-    if (!frame || !count) return;
+    if (!frame || !track || !count) return;
 
-    frame.style.perspective = `calc(var(--cf-card) * ${perspective})`;
+    frame.style.perspective = `calc(var(--cf-h) * ${perspective})`;
 
     /** Fractional card index at the centre. The single source of truth. */
     let pos = 0;
     /** Where the current settle is headed, so a mid-flight keypress isn't swallowed. */
     let target = 0;
-    let width = 0;
     let raf = null;
     let drag = null;
     let suppressClick = false;
     let selected = -1;
 
+    // Layout, rebuilt by measure(): card height, each card's width, the
+    // centre of each card along the strip (card 0 at 0), and the ring length.
+    let height = 0;
+    let widths = [];
+    let centres = [];
+    let ring = 0;
+
     /** Nearest whole card, folded back into 0..count-1. */
     const indexAt = (p) => ((Math.round(p) % count) + count) % count;
     const clamp = (p) => (loop ? p : Math.max(0, Math.min(count - 1, p)));
+
+    /** Width over height of a card's painting, from the img's size attributes. */
+    const ratioOf = (card) => {
+      const img = card.querySelector('img');
+      const w = img.naturalWidth || parseFloat(img.getAttribute('width'));
+      const h = img.naturalHeight || parseFloat(img.getAttribute('height'));
+      return w && h ? w / h : 0.8;
+    };
+
+    /** Centre of card i on the unrolled strip; i may run past either end of the ring. */
+    const centreOf = (i) => {
+      const lap = Math.floor(i / count);
+      return centres[i - lap * count] + lap * ring;
+    };
+
+    /** Strip position (px) of a fractional card index. */
+    const xAt = (p) => {
+      const i = Math.floor(p);
+      const a = centreOf(i);
+      return a + (p - i) * (centreOf(i + 1) - a);
+    };
+
+    /** Fractional card index at a strip position (px) — the inverse of xAt. */
+    const posAt = (x) => {
+      const lap = Math.floor(x / ring);
+      const local = x - lap * ring;
+      let i = 0;
+      while (i < count - 1 && centres[i + 1] <= local) i++;
+      const a = centreOf(i);
+      return lap * count + i + (local - a) / (centreOf(i + 1) - a);
+    };
 
     const dots = [];
     if (dotsWrap) {
@@ -80,16 +123,19 @@
 
     // Paint straight to the DOM, every frame, for every card.
     function paint() {
-      if (!width) return;
-      const pitch = width * (1 + gap);
+      if (!height) return;
+      const here = xAt(pos);
 
       cards.forEach((card, index) => {
-        // Fold the distance into the shorter way round the ring — the whole
-        // looping mechanism, with no cloned nodes.
+        // Distance in card steps drives the rake, fade and stacking.
         let offset = index - pos;
+        // Distance in pixels drives placement, so mixed widths sit edge to edge.
+        let shift = centres[index] - here;
         if (loop) {
           offset = ((offset % count) + count) % count;
           if (offset > count / 2) offset -= count;
+          shift = ((shift % ring) + ring) % ring;
+          if (shift > ring / 2) shift -= ring;
         }
 
         const distance = Math.abs(offset);
@@ -98,8 +144,8 @@
         const tilt = Math.min(rotate * ramp, 82) * Math.sign(offset);
 
         card.style.transform =
-          `translateX(calc(-50% + ${offset * pitch}px)) ` +
-          `translateZ(${-depth * width * ramp}px) rotateY(${-tilt}deg)`;
+          `translate(calc(-50% + ${shift}px), -50%) ` +
+          `translateZ(${-depth * height * ramp}px) rotateY(${-tilt}deg)`;
 
         // A card jumps across the ring at half a turn out, so it must be gone by then.
         const edge = loop ? Math.min(1, Math.max(0, count / 2 - distance)) : 1;
@@ -151,7 +197,7 @@
       drag = {
         id: event.pointerId,
         x: event.clientX,
-        pos,
+        from: 0,
         v: 0,
         t: performance.now(),
         moved: false,
@@ -163,13 +209,13 @@
       const dx = event.clientX - drag.x;
 
       if (!drag.moved) {
-        if (Math.abs(dx) < 6) return;
+        if (Math.abs(dx) < 6 || !height) return;
         drag.moved = true;
         if (raf !== null) {
           cancelAnimationFrame(raf);
           raf = null;
         }
-        drag.pos = pos;
+        drag.from = xAt(pos);
         drag.x = event.clientX;
         target = pos;
         frame.setPointerCapture(event.pointerId);
@@ -177,12 +223,10 @@
         return;
       }
 
-      const pitch = width * (1 + gap);
-      if (!pitch) return;
-
       const now = performance.now();
       const previous = pos;
-      pos = clamp(drag.pos - dx / pitch);
+      // The strip follows the pointer pixel for pixel, whatever the card widths.
+      pos = clamp(posAt(drag.from - dx));
       // Cards per second, for the throw.
       drag.v = ((pos - previous) / Math.max(now - drag.t, 1)) * 1000;
       drag.t = now;
@@ -243,12 +287,33 @@
     root.querySelector('.cf__nav--prev')?.addEventListener('click', () => nudge(-1));
     root.querySelector('.cf__nav--next')?.addEventListener('click', () => nudge(1));
 
-    // Card width drives pitch and depth, so it is the only thing worth measuring.
-    const measure = () => {
-      width = cards[0].offsetWidth;
+    // Size every card from the track height and its painting's proportions,
+    // then lay the cards out along the strip by their real widths.
+    function measure() {
+      height = track.offsetHeight;
+      if (!height) return;
+      const widest = Math.min(height * maxAspect, frame.offsetWidth * 0.86);
+      const space = height * gap;
+
+      widths = cards.map((card) => {
+        const ratio = ratioOf(card);
+        const w = Math.min(height * ratio, widest);
+        card.style.width = `${w}px`;
+        card.style.height = `${w / ratio}px`;
+        return w;
+      });
+
+      centres = [0];
+      for (let i = 1; i < count; i++) {
+        centres[i] = centres[i - 1] + widths[i - 1] / 2 + space + widths[i] / 2;
+      }
+      ring = centres[count - 1] + widths[count - 1] / 2 + space + widths[0] / 2;
       paint();
-    };
+    }
+
     new ResizeObserver(measure).observe(frame);
+    // Proportions come from the size attributes; re-measure if a file differs.
+    cards.forEach((card) => card.querySelector('img')?.addEventListener('load', measure));
 
     // Auto-drift. Stops while the cursor is over the stage (settling on the
     // nearest card so it can be read), while focused, dragged, off-screen,
