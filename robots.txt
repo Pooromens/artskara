@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+# Earlier design drafts, kept for reference; not part of the site.
+Disallow: /design-a.html
+Disallow: /design-b.html
+Disallow: /design-c.html
+
+Sitemap: https://www.artskara.com/sitemap.xml

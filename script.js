@@ -283,11 +283,45 @@ function setLang(lang) {
   }
 }
 
+// The main site has one page per language (/, /ru/, /ro/) so search engines
+// can read each one; the language buttons move between them. Pages without
+// data-page-lang (the older design drafts) still translate in place.
+const PAGE_LANG = document.documentElement.dataset.pageLang;
+const LANG_URLS = { en: '/', ru: '/ru/', ro: '/ro/' };
+
 document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
-  btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang-btn')));
+  btn.addEventListener('click', () => {
+    const lang = btn.getAttribute('data-lang-btn');
+    if (PAGE_LANG && lang !== PAGE_LANG) {
+      try {
+        localStorage.setItem(STORAGE_KEY, lang);
+      } catch (e) {
+        /* localStorage unavailable — ignore */
+      }
+      location.href = LANG_URLS[lang] + location.hash;
+      return;
+    }
+    setLang(lang);
+  });
 });
 
-setLang(getStoredLang());
+if (PAGE_LANG) {
+  // A returning visitor who picked Russian or Romanian lands on the English
+  // root; send them on to their language. Crawlers have no stored choice.
+  let stored = null;
+  try {
+    stored = localStorage.getItem(STORAGE_KEY);
+  } catch (e) {
+    /* localStorage unavailable — ignore */
+  }
+  if (PAGE_LANG === 'en' && stored && stored !== 'en' && LANG_URLS[stored]) {
+    location.replace(LANG_URLS[stored] + location.hash);
+  } else {
+    setLang(PAGE_LANG);
+  }
+} else {
+  setLang(getStoredLang());
+}
 
 // ---------- Mobile menu toggle ----------
 const toggle = document.querySelector('.nav__toggle');
