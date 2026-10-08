@@ -492,6 +492,15 @@ ul { padding: 0; list-style: none; }
   .cf__caption.is-active { animation: none; }
 }
 
+.cf__ask {
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+.cf__ask:hover { border-color: var(--foreground); }
+
 /* ---------- About ---------- */
 .about {
   max-width: 1000px;

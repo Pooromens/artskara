@@ -2,6 +2,7 @@
 const translations = {
   en: {
     'nav.work': 'Work',
+    'cf.ask': 'Ask the price',
     'nav.about': 'About',
     'nav.exhibitions': 'Exhibitions',
     'nav.contact': 'Contact',
@@ -84,6 +85,7 @@ const translations = {
   },
   ru: {
     'nav.work': 'Работы',
+    'cf.ask': 'Узнать цену',
     'nav.about': 'Об авторе',
     'nav.exhibitions': 'Выставки',
     'nav.contact': 'Контакты',
@@ -166,6 +168,7 @@ const translations = {
   },
   ro: {
     'nav.work': 'Lucrări',
+    'cf.ask': 'Află prețul',
     'nav.about': 'Despre',
     'nav.exhibitions': 'Expoziții',
     'nav.contact': 'Contact',

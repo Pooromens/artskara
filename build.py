@@ -24,22 +24,22 @@ LOCALES = {"en": "en_US", "ru": "ru_RU", "ro": "ro_RO"}
 
 META = {
     "en": {
-        "title": "Irina Kara — Contemporary Painter, Chișinău",
-        "description": "Irina Kara is a contemporary painter from Chișinău, Moldova. "
-        "Oil and acrylic paintings built on colour, light and texture, "
-        "shown in Moldova and London.",
+        "title": "Irina Kara — Original Paintings for Sale, Chișinău, Moldova",
+        "description": "Buy original oil and acrylic paintings by Irina Kara, "
+        "a contemporary painter from Chișinău, Moldova. Buy directly from the "
+        "artist, order a commission, or get worldwide delivery.",
     },
     "ru": {
-        "title": "Ирина Кара — художница из Кишинёва, современная живопись",
-        "description": "Ирина Кара — современная художница из Кишинёва. "
-        "Живопись маслом и акрилом, построенная на цвете, свете и фактуре; "
-        "выставки в Молдове и Лондоне.",
+        "title": "Купить картины в Кишинёве — Ирина Кара, современная живопись",
+        "description": "Купить оригинальные картины маслом и акрилом в Кишинёве: "
+        "работы современной художницы Ирины Кара. Покупка напрямую у художницы, "
+        "картины на заказ, доставка по Молдове и всему миру.",
     },
     "ro": {
-        "title": "Irina Kara — pictoriță din Chișinău, pictură contemporană",
-        "description": "Irina Kara este o pictoriță contemporană din Chișinău. "
-        "Pictură în ulei și acrilic construită pe culoare, lumină și textură, "
-        "expusă în Moldova și la Londra.",
+        "title": "Tablouri de vânzare în Chișinău — Irina Kara, pictură contemporană",
+        "description": "Cumpără tablouri originale în ulei și acrilic în Chișinău: "
+        "lucrări ale pictoriței contemporane Irina Kara. Direct de la artistă, "
+        "tablouri la comandă, livrare în Moldova și în toată lumea.",
     },
 }
 
